@@ -97,6 +97,12 @@ namespace homework5
                         {
                         }
                         break;
+                    case 3:
+
+                        {
+
+                        }
+                        break;
                 }
             }
 
