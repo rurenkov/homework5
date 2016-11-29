@@ -70,14 +70,14 @@ namespace homework5
                         {
                             Console.WriteLine("Enter what you want to add \n");
                             Common.ParceD(ref put);                        //parce value which needs to be added
-                            myqueue.ENQUEUE(put);
+                            myqueue.Enqueue(put);
                             Common.PrintArray(buffer);
                             free--;
                             Console.WriteLine("free__" + free);         //debug
                             Console.WriteLine("tail__" + tail);         //debug
                         }
 
-                        else if (MyQueue.IsFullQ(free))
+                        else if (MyQueue.IsFull(free))
                         {
                         }
                         break;
@@ -87,13 +87,13 @@ namespace homework5
                         {
 
                             Console.WriteLine("deleting # " + tail);
-                            myqueue.DEQUEUE();
+                            myqueue.Dequeue();
                             free++;
                             Common.PrintArray(buffer);
                             Console.WriteLine("tail__" + tail);         //debug
                             Console.WriteLine("free__" + free);         //debug
                         }
-                        else if (MyQueue.IsEMPTYQ(free, Buffsize))
+                        else if (MyQueue.IsEmpty(free, Buffsize))
                         {
                         }
                         break;

@@ -24,7 +24,7 @@ namespace homework5
         // enqueue method;
         //*******************************************************//
         //   public void ENQUEUE(ref int put, ref int Buffsize, ref int head, ref int[] buffer)
-        public void ENQUEUE(int put)
+        public void Enqueue(int put)
         {
             if (head < Array.Length)
             {
@@ -43,7 +43,7 @@ namespace homework5
         // DEqueue method;
         //*******************************************************//
 
-        public void DEQUEUE()
+        public void Dequeue()
 
         {
             if (tail < Array.Length)
@@ -62,7 +62,7 @@ namespace homework5
         //*******************************************************//
         // IS FULLQ method;
         //*******************************************************//
-        public static bool IsFullQ(int free)
+        public static bool IsFull(int free)
         {
 
             if (free <= 0)
@@ -74,7 +74,7 @@ namespace homework5
         //*******************************************************//
         // IS EMPTY method;
         //*******************************************************//
-        public static bool IsEMPTYQ(int free, int Buffsize)
+        public static bool IsEmpty(int free, int Buffsize)
         {
 
             if (free == Buffsize)
