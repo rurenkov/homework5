@@ -23,8 +23,29 @@ namespace homework5
         }
 
 
+      
+    public static void Print(int[] MyArray)
+    {
+
+        Console.WriteLine("[{0}]", string.Join(", ", MyArray));
+
+    }
+
+    //*******************************************************//
+    // swap method;
+    //*******************************************************//
+
+    public static void Swap(ref int a, ref int b)   // need to fix it in order to work with indexes.
+
+    {
+        int tmp = 0;
+        tmp = a;
+        a = b;
+        b = tmp;
+    }
+
         //*******************************************************//
-        // BuBBLE SORT
+        // SORT
         //*******************************************************//
 
 
@@ -36,11 +57,12 @@ namespace homework5
                 {
                     if (Array[j] < Array[j - 1])
                     {
-                        Common.SWAP(ref Array[j - 1], ref Array[j]);
+                        InsertionSorter.Swap(ref Array[j - 1],ref Array[j]);
                         j--;
                     }
                 }
             }
         }
     }
+
 }

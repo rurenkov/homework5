@@ -12,30 +12,42 @@ namespace homework5
         private int[] Array;
         private int head;
         private int tail;
+        private int free;
+
 
         public MyQueue(int[] array)   // конструктор маЄ бути названий так само як класс. Обовязково!!!
         {
             this.Array = array;
-
+            this.free = 0;
+            this.head = 0;
+            this.free = Array.Length - head;
         }
 
 
         //*******************************************************//
         // enqueue method;
         //*******************************************************//
-        //   public void ENQUEUE(ref int put, ref int Buffsize, ref int head, ref int[] buffer)
         public void Enqueue(int put)
         {
-            if (head < Array.Length)
+            if (free > 0)
             {
-                Array[head] = put;
-                head++;
+                if (head < Array.Length)
+                {
+                    Array[head] = put;
+                    head++;
+                }
+                else if (head == Array.Length)
+                {
+                    head = 0;
+                    Array[head] = put;
+                    head++;
+                }
+                free--;
+                Console.WriteLine("free__" + free);         //debug
+                Console.WriteLine("tail__" + tail);         //debug
             }
-            else if (head == Array.Length)
+            else if (MyQueue.IsFull(free))
             {
-                head = 0;
-                Array[head] = put;
-                head++;
             }
         }
 
@@ -46,23 +58,32 @@ namespace homework5
         public void Dequeue()
 
         {
-            if (tail < Array.Length)
+            if (free < Array.Length)
             {
-                Array[tail] = 0;
-                tail++;
+                if (tail < Array.Length)
+                {
+                    Array[tail] = 0;
+                    tail++;
+                }
+                else if (tail == Array.Length)
+                {
+                    tail = 0;
+                    Array[tail] = 0;
+                    tail++;
+                }
+                free++;
+                Console.WriteLine("tail__" + tail);         //debug
+                Console.WriteLine("free__" + free);         //debug
             }
-            else if (tail == Array.Length)
+            else if (MyQueue.IsEmpty(free, Array.Length))
             {
-                tail = 0;
-                Array[tail] = 0;
-                tail++;
             }
         }
 
-        //*******************************************************//
-        // IS FULLQ method;
-        //*******************************************************//
-        public static bool IsFull(int free)
+//*******************************************************//
+// IS FULLQ method;
+//*******************************************************//
+public static bool IsFull(int free)
         {
 
             if (free <= 0)
@@ -84,6 +105,12 @@ namespace homework5
             return true;
         }
 
+        public static void PrintArray(int[] MYarray)
+        {
+
+            Console.WriteLine("[{0}]", string.Join(", ", MYarray));
+
+        }
 
 
 
